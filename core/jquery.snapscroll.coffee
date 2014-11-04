@@ -33,12 +33,13 @@
           # Always clear the timeout on new scroll
           if $child
             clearTimeout timer
-
             timer = setTimeout ->
-              $(window).scrollTo($child, scroll_speed)
+              $(window).trigger('snapscrollBefore', $child).scrollTo $child,
+                'duration': scroll_speed,
+                'onAfter': =>
+                  $(window).trigger('snapscrollAfter', $child)
               $child.siblings(".ss-active").removeClass("ss-active")
               $child.addClass("ss-active")
-
               # Prevent scrollTo from calling itself
               autoscrolling = true
               setTimeout ->
