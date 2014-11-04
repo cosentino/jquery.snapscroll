@@ -5,6 +5,7 @@
     topPadding: 40
     scrollSpeed: 300
     scrollEndSpeed: 100
+    excludeSelector: false
 
   Plugin = (element, options) ->
     @container = $(element)
@@ -17,6 +18,8 @@
 
     snapping: ->
       $children = @container.children()
+      if @options.excludeSelector
+        $children = $children.not(@options.excludeSelector)
 
       scroll_speed = @options.scrollSpeed
       scroll_end_speed = @options.scrollEndSpeed

@@ -6,7 +6,8 @@
       botPadding: 40,
       topPadding: 40,
       scrollSpeed: 300,
-      scrollEndSpeed: 100
+      scrollEndSpeed: 100,
+      excludeSelector: false
     };
     Plugin = function(element, options) {
       this.container = $(element);
@@ -21,6 +22,9 @@
         var $children, autoscrolling, prev_position, scroll_end_speed, scroll_speed, timer,
           _this = this;
         $children = this.container.children();
+        if (this.options.excludeSelector) {
+          $children = $children.not(this.options.excludeSelector);
+        }
         scroll_speed = this.options.scrollSpeed;
         scroll_end_speed = this.options.scrollEndSpeed;
         prev_position = $(document).scrollTop();

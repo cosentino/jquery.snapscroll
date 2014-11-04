@@ -31,5 +31,6 @@ ul.content li h1 {
 }
 
 ul.content li.first { background: url('../images/dirty_old_shirt.png'); }
+ul.content li.ignore { background: url('../images/asfalt.png'); }
 ul.content li.second { background: url('../images/navy_blue.png'); }
 ul.content li.third { background: url('../images/asfalt.png'); }

@@ -1,3 +1,5 @@
 $(function() {
-  $("ul.content").snapscroll();
+  $("ul.content").snapscroll({
+  	excludeSelector: '.ignore'
+  });
 });
